@@ -14,13 +14,37 @@ Este proyecto de Flutter implementa una aplicación que permite a los usuarios i
 - [Riverpod](https://riverpod.dev/)
 - Toasts nativos mediante canales de plataforma específicos para Android y iOS.
 
-## Estructura del Proyecto
+# Estructura del Proyecto
 
-- `lib/`: Contiene los archivos Dart del proyecto.
-  - `main.dart`: Punto de entrada de la aplicación Flutter.
-  - `matrix_provider.dart`: Define la lógica de negocio para manejar el estado de la matriz.
-- `android/`: Código específico de Android, incluyendo la implementación de toasts nativos.
-- `ios/`: Código específico de iOS para toasts nativos.
+Este documento describe la estructura de directorios del proyecto `Matrix Rotation App`, organizada para facilitar la escalabilidad y el mantenimiento. Es crucial que todas las nuevas características sigan esta estructura para asegurar la consistencia y facilitar la integración y el mantenimiento.
+
+## Directorio Raíz
+
+- **src/**: Contiene el código fuente principal de la aplicación.
+  - **main.dart**: Punto de entrada de la aplicación Flutter.
+  - **app_startup.dart**: Manejan la configuración inicial.
+  - **router/app_router.dart**: Gestiona la navegación y el ruteo dentro de la aplicación.
+  - **app.dart**: Contiene el widget principal de la aplicación.
+  - **localization/**: Maneja la localización y la internacionalización.
+  - **constants/**: Define las constantes utilizadas a través de la aplicación.
+
+## Features
+
+Cada característica de la aplicación se encuentra en su propio subdirectorio dentro de `features`, diseñado para una fácil escalabilidad y mantenimiento. Cada nueva característica debe incluir al menos las siguientes subcarpetas:
+
+- **domain/**: Contiene la lógica de negocio y las entidades de dominio.
+- **repository/**: Capa de abstracción que maneja la comunicación con fuentes de datos externas.
+- **providers/**: Proveedores de Riverpod específicos para la gestión del estado de la característica.
+- **presentation/**: Contiene los widgets y UI relacionados con la funcionalidad.
+
+### Ejemplo de estructura para una nueva característica
+
+- **features/**
+  - **new_feature/**: Nombre de la nueva característica.
+    - **domain/**: Define la lógica y las entidades relacionadas con `new_feature`.
+    - **repository/**: Gestiona el almacenamiento y la recuperación de datos de `new_feature`.
+    - **providers/**: Proveedores de estado para `new_feature`.
+    - **presentation/**: UI y widgets específicos para `new
 
 ## Requisitos Previos
 
